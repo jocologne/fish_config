@@ -1,10 +1,12 @@
-function gsend --description "git add, git commit, git push"
+function gsend --description "git add, commit e push silencioso"
     if test (count $argv) -lt 1
-        echo "Usage: gacp <commit msg>"
+        set_color --bold red
+        echo "Usage: gsend <msg>"
+        set_color normal
         return 1
     end
     if not git rev-parse --is-inside-work-tree >/dev/null 2>&1
-        set_color red
+        set_color --bold red
         echo "Não é repositório git"
         set_color normal
         return 1
@@ -16,15 +18,15 @@ function gsend --description "git add, git commit, git push"
         return 0
     end
     set msg (string join " " $argv)
-    git add .
-    git commit -m "$msg" >/dev/null; or begin
-        set_color red
+    git add . >/dev/null 2>&1
+    git commit -m "$msg" >/dev/null 2>&1; or begin
+        set_color --bold red
         echo "Falha no commit"
         set_color normal
         return 1
     end
-    git push >/dev/null; or begin
-        set_color red
+    git push >/dev/null 2>&1; or begin
+        set_color --bold red
         echo "Falha no push"
         set_color normal
         return 1
@@ -33,4 +35,3 @@ function gsend --description "git add, git commit, git push"
     echo "🚀 Enviado"
     set_color normal
 end
-#Teste de commit
