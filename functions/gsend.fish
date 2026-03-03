@@ -12,7 +12,8 @@ function gsend --description "git add, commit e push silencioso"
         set_color normal
         return 1
     end
-    if test -z (git status --porcelain)
+    set status_output (git status --porcelain)
+    if test -z "$status_output"
         set_color yellow
         echo "Nada para commit"
         set_color normal
