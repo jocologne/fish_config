@@ -1,9 +1,7 @@
 function gsend --description "git add, commit e push silencioso"
     argparse 'l/list' -- $argv; or return
     if test (count $argv) -lt 1
-        set_color --bold red
         echo "Usage: gsend <msg>"
-        set_color normal
         return 1
     end
     if not git rev-parse --is-inside-work-tree >/dev/null 2>&1
