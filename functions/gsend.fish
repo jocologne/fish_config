@@ -1,4 +1,4 @@
-function gacp --description "git add, git commit, git push"
+function gsend --description "git add, git commit, git push"
     if test (count $argv) -lt 1
         echo "Usage: gacp <commit msg>"
         return 1
