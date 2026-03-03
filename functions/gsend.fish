@@ -45,4 +45,3 @@ function gsend --description "git add, commit e push silencioso"
     echo "🚀 Enviado"
     set_color normal
 end
-#test 1
