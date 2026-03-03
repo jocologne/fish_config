@@ -23,5 +23,5 @@ function __spinner --description "Spinner simples"
             sleep 0.1
         end
     end
-    printf "\r"
+    printf "\r\033[K"
 end

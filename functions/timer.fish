@@ -5,7 +5,6 @@ function timer --description "Mede tempo de execução"
 	end
 	set start (date +%s%N)
 	$argv
-	set cmd_status $status
 	set end (date +%s%N)
 	set duration_ns (math $end - $start)
 	if test $duration_ns -lt 1000000
