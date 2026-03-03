@@ -21,7 +21,7 @@ function gsend --description "git add, commit e push silencioso"
     if set -q _flag_l
         set_color cyan
         echo "Arquivos:"
-        echo "$status_output"
+        git status --short
         set_color normal
     end
     git add -A >/dev/null 2>&1
