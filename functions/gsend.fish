@@ -33,3 +33,4 @@ function gsend --description "git add, git commit, git push"
     echo "🚀 Enviado"
     set_color normal
 end
+#Teste de commit
