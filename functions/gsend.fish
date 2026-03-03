@@ -31,7 +31,7 @@ function gsend --description "git add, commit e push silencioso"
     end
     git push >/dev/null 2>&1 &
     set pid $last_pid
-    __spinner $pid "Enviando..."
+    __spinner $pid "Enviando..." cyan
     wait $pid; or begin
         set_color --bold red
         echo "Falha no push"
