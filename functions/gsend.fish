@@ -17,6 +17,10 @@ function gsend --description "git add, commit e push silencioso"
         set_color normal
         return 0
     end
+    set_color cyan
+    echo "Arquivos:"
+    git status --short
+    set_color normal
     set msg (string join " " $argv)
     git add . >/dev/null 2>&1
     git commit -m "$msg" >/dev/null 2>&1; or begin
