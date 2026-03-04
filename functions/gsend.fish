@@ -18,13 +18,13 @@ function gsend --description "git add, commit e push silencioso"
         set_color normal
         return 0
     end
+    git add -A >/dev/null 2>&1
     if set -q _flag_l
         set_color cyan
         echo "Arquivos:"
         git status --short
         set_color normal
     end
-    git add -A >/dev/null 2>&1
     git commit -m "$msg" >/dev/null 2>&1; or begin
         set_color --bold red
         echo "Falha no commit"
