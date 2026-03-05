@@ -3,8 +3,6 @@ function __minimal_prompt --description "Custom prompt"
 	set_color green
 	echo -n "$cwd "
 	set_color cyan
-	echo -n ">"
-	set_color red
-	echo -n "> "
+	echo -n ">> "
 	set normal
 end
