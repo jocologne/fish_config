@@ -2,7 +2,7 @@ function setprompt --description "Troca de prompt"
 	if not functions -q __prompt_original
 		functions -c fish_prompt __prompt_original
 	end
-	set prompts "minimal" "timed" "reset"
+	set prompts "minimal" "timed" "reset" "twoline"
 	set height (math (count $prompts) + 4)
 	if test (count $argv) -eq 0
 		set choice (printf "%s\n" $prompts | fzf --prompt="Escolha um prompt: " --height=$height --border)
@@ -21,10 +21,14 @@ function setprompt --description "Troca de prompt"
 			function fish_prompt
 				__time_prompt
 			end
+		case twoline
+			function fish_prompt
+				__twoline_prompt
+			end
 		case reset
 			functions -e fish_prompt
 			functions -c __prompt_original fish_prompt
 		case '*'
-			echo "Uso: setprompt [minimal|timed|reset]"
+			echo "Uso: setprompt [minimal|timed|twoline|reset]"
 	end
 end
