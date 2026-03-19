@@ -1,4 +1,4 @@
-function timer --description "Mede tempo de execução"
+function timer --description "Mede tempo de execução flag -n para media de n execuções"
 	argparse 'n/runs=' -- $argv; or return
 	if test (count $argv) -lt 1
 		echo "Uso: timer [-n N] <cmd>"
