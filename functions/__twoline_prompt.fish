@@ -17,7 +17,7 @@ function __twoline_prompt --description "Custom prompt"
     end
 
     # calcula espaço para alinhar relógio
-    set -l pad (math $COLUMNS - (string length $left_plain) - (string length $ts) - 2)
+    set -l pad (math $COLUMNS - (string length $left_plain) - (string length $ts) - 1)
     if test $pad -lt 1
         set pad 1
     end

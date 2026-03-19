@@ -6,5 +6,5 @@ function __time_prompt --description "Custom prompt"
 	set_color cyan
 	echo -n "$cwd"
 	set_color red
-	echo -n ">> "
+	echo -n " >> "
 end
