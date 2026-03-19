@@ -1,4 +1,4 @@
-function clip --description "Executa um comando e copia a saida para area de tranferencia"
+function clip --description "Executa um comando e copia sua saída para a área de transferência."
     set prompt_line "($(whoami)@$(hostname)) $(pwd) \$ $argv"
     set tmpfile (mktemp)
     if test (count $argv) -gt 0
