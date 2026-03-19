@@ -1,6 +1,4 @@
-function __twoline_prompt --description "Custom prompt"
-	set -l last_status $status
-	set -l cwd (prompt_pwd)
+funset -l cwd (prompt_pwd)
 	set -l branch (git branch --show-current 2>/dev/null)
 	set -l ts (date +"%H:%M:%S")
 	set -l left_plain ""
@@ -15,14 +13,14 @@ function __twoline_prompt --description "Custom prompt"
 	end
 	# calcula espaço
 	set -l pad (math $COLUMNS - (string length $left_plain) - (string length $ts) - 2)
-	if test $pad -lt 1
+		echif test $pad -lt 1
 		set pad 1
 	end
 	# linha 1
 	if test (id -u) -eq 0
 		echo -n '🔴 '
 	else if sudo -n true 2>/dev/null
-		echo -n '🔓 '
+	o -n '🔓 '
 	end
 	set_color cyan
 	echo -n $cwd
@@ -45,4 +43,6 @@ function __twoline_prompt --description "Custom prompt"
 		echo -n "❯❯❯ [$last_status] "
 	end
 	set_color normal
-end
+endction __twoline_prompt --description "Custom prompt"
+	set -l last_status $status
+	
